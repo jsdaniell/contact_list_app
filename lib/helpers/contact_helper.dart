@@ -14,7 +14,6 @@ final String imgCol = "imgCol";
 * when the _instance method is called */
 
 class ContactHelper {
-
   /* When ContactHelper is called the factory construct an instance, what's
   * the ContactHelper.internal method, that's allow use all other methods of
   * this class */
@@ -25,8 +24,25 @@ class ContactHelper {
 
   ContactHelper.internal();
 
-}
+  // Database is a type of sqlite API of Dart, and one database inside a
+  // variable called _db is created.
 
+  Database _db;
+
+/* Theses getters and setters are necessarily, not only for protect the
+   variable, but also for implement a kind of test or validation to know if
+   the database is already created, when this variable is instantiated, it's
+    create a new Database */
+
+  get db {
+
+    // Now the method to know if the database isn't null
+
+    if(_db != null){
+      return _db; // If isn't null returns a _db registered on Database type
+    }
+  }
+}
 
 // Begin of model class tgito Contact
 
@@ -80,8 +96,6 @@ class Contact {
   String toString() {
     return "Contact (id: $id, name: $name, email: $email, phone: $phone, img: $img)";
   }
-
-
 }
 
 // End of model class to Contact
