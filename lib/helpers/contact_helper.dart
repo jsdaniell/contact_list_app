@@ -16,6 +16,7 @@ final String imgCol = "imgCol";
 * when the _instance method is called */
 
 class ContactHelper {
+
   /* When ContactHelper is called the factory construct an instance, what's
   * the ContactHelper.internal method, that's allow use all other methods of
   * this class */
@@ -94,7 +95,7 @@ class ContactHelper {
   }
 }
 
-// Begin of model class tgito Contact
+// Begin of model class Contact
 
 class Contact {
   int id;
