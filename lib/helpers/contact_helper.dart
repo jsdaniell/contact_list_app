@@ -1,8 +1,10 @@
+import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
 // Defining the Strings that represent the columns of the database table
 // Using "final" type because this value will not change
 
+final String contactTable = "contactTable";
 final String idCol = "idCol";
 final String nameCol = "nameCol";
 final String emailCol = "emailCol";
@@ -32,15 +34,63 @@ class ContactHelper {
 /* Theses getters and setters are necessarily, not only for protect the
    variable, but also for implement a kind of test or validation to know if
    the database is already created, when this variable is instantiated, it's
-    create a new Database */
+   create a new Database */
 
-  get db {
+  // This function don't return instantaneously so have to be a Future object.
 
+  Future<Database> get db async {
     // Now the method to know if the database isn't null
 
-    if(_db != null){
+    if (_db != null) {
       return _db; // If isn't null returns a _db registered on Database type
+    } else {
+      _db = await initDb(); // If null (not created), initiate a new database
+
+      /* The initDb() is a asynchronous function, so have to be a Future object
+      * to return */
+
+      return _db;
+
     }
+  }
+
+  // Function to initialize the database
+
+  /* The initDb() is a asynchronous function, so have to be a Future object
+  * to return */
+
+  Future<Database> initDb() async {
+    // Capturing the path where the database will be stored
+
+    /* The getDatabasesPath have a delay for complete and return the path, so
+    * this function have a await word, showing that's variable have to await
+    * the getDatabasesPath finish.
+    *
+    * For use await word, the function have to be async.*/
+
+    final databasesPath = await getDatabasesPath();
+
+    /* join method converts each element to a String and concatenates the strings.
+    * Iterates through elements of this iterable, converts each one to a String
+    * by calling Object.toString, and then concatenates the strings, with the
+    * separator string interleaved between the elements.*/
+
+    final path = join("databasesPath", "contacts.db");
+
+    // Now the path for database is concluded.
+    // Opening the database
+
+    /* The openDatabase method, has a path and version as parameter, although,
+    * the onCreate has a Database and a version, this requires isn't
+    * instantaneous so have to be an async function */
+
+    return await openDatabase(path, version: 1,
+        onCreate: (Database db, int newerVersion) async {
+      // The SQL command to initiate
+
+      await db.execute(
+          "CREATE TABLE $contactTable($idCol INTEGER PRIMARY KEY, $nameCol TEXT, $emailCol TEXT, $phoneCol TEXT, $imgCol TEXT)");
+    });
   }
 }
 
