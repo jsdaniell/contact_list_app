@@ -16,7 +16,6 @@ final String imgCol = "imgCol";
 * when the _instance method is called */
 
 class ContactHelper {
-
   /* When ContactHelper is called the factory construct an instance, what's
   * the ContactHelper.internal method, that's allow use all other methods of
   * this class */
@@ -51,7 +50,6 @@ class ContactHelper {
       * to return */
 
       return _db;
-
     }
   }
 
@@ -93,6 +91,35 @@ class ContactHelper {
           "CREATE TABLE $contactTable($idCol INTEGER PRIMARY KEY, $nameCol TEXT, $emailCol TEXT, $phoneCol TEXT, $imgCol TEXT)");
     });
   }
+
+  // Saving contact on database
+
+  Future<Contact> saveContact(Contact contact) async {
+    Database dbContact = await db;
+
+    // Here the method toMap catch the attributes of table and pass toMap
+
+    contact.id = await dbContact.insert(contactTable, contact.toMap());
+    return contact;
+  }
+
+  // Obtaining contact for database
+
+  Future<Contact> getContact(int id) async {
+    Database dbContact = await db;
+    List<Map> maps = await dbContact.query(contactTable,
+    columns: [idCol, nameCol, emailCol, phoneCol, imgCol],
+    where: "$idCol = ?",
+    whereArgs: [id]);
+
+    if(maps.length > 0){
+      return Contact.fromMap(maps.first);
+    } else {
+      return null;
+    }
+  }
+
+  // TODO: Aula - Finalizando a classe ContactHelper
 }
 
 // Begin of model class Contact
