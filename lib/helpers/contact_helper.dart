@@ -13,7 +13,7 @@ final String imgCol = "imgCol";
 
 /* Here is a example of singleton pattern in Dart, this class don't have to be
 *  a instance for initialize, their method are available of any local of code
-* when the _instance method is called */
+* when the _instance method is called, so this is a unique class of all code. */
 
 class ContactHelper {
   /* When ContactHelper is called the factory construct an instance, what's
@@ -108,18 +108,53 @@ class ContactHelper {
   Future<Contact> getContact(int id) async {
     Database dbContact = await db;
     List<Map> maps = await dbContact.query(contactTable,
-    columns: [idCol, nameCol, emailCol, phoneCol, imgCol],
-    where: "$idCol = ?",
-    whereArgs: [id]);
+        columns: [idCol, nameCol, emailCol, phoneCol, imgCol],
+        where: "$idCol = ?",
+        whereArgs: [id]);
 
-    if(maps.length > 0){
+    if (maps.length > 0) {
       return Contact.fromMap(maps.first);
     } else {
       return null;
     }
   }
 
-  // TODO: Aula - Finalizando a classe ContactHelper
+  // Deleting contact inside database
+
+  Future<int> deleteContact(int id) async {
+    Database dbContact = await db;
+    return await dbContact
+        .delete(contactTable, where: "$idCol = ?", whereArgs: [id]);
+  }
+
+  Future<int> updateContact(Contact contact) async {
+    Database dbContact = await db;
+    return await dbContact.update(contactTable, contact.toMap(),
+        where: "$idCol = ?", whereArgs: [contact.id]);
+  }
+
+  Future<List> getAllContacts() async {
+    Database dbContact = await db;
+    List listMap = await dbContact.rawQuery("SELECT * FROM $contactTable");
+    List<Contact> listContact = List();
+    for (Map m in listMap) {
+      listContact.add(Contact.fromMap(m));
+    }
+    return listContact;
+  }
+
+  Future<int> getNumber() async {
+    Database dbContact = await db;
+    return Sqflite.firstIntValue(
+        await dbContact.rawQuery("SELECT COUNT(*) FROM $contactTable"));
+  }
+
+  // Closing database
+
+  Future close() async {
+    Database dbContact = await db;
+    dbContact.close();
+  }
 }
 
 // Begin of model class Contact
