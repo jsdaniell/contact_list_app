@@ -170,6 +170,10 @@ class Contact {
   // The name of method "fromMap" is created by user
   // So this is a simple function that's inside contact and receive a Map as parameter
 
+  // Empty constructor
+
+  Contact();
+
   Contact.fromMap(Map map) {
     // Putting the columns variables inside class variables
 
