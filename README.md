@@ -1,6 +1,6 @@
 # Contact List App
 
-Personal project using SQFlite plugin to storage a list of contacts in a database, with some functionality of add, edit and exlude contacts of the database.
+Personal project using SQFlite plugin to storage a list of contacts in a database, with some functionality of add, edit and exclude contacts of the database.
 
 ## Some observations
 
