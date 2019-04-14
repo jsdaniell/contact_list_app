@@ -14,8 +14,13 @@ This project is a starting point for a Flutter application.
 
 ## Some pictures of the app
 
-![Screenshot_2019-04-14-12-48-46-477_com jsdaniell contactlist contact_list](https://user-images.githubusercontent.com/44711197/56095792-b8dc1280-5eb6-11e9-9239-d368516a8d4b.png)
-![Screenshot_2019-04-14-12-48-54-628_com jsdaniell contactlist contact_list](https://user-images.githubusercontent.com/44711197/56095793-b974a900-5eb6-11e9-89ca-8ddaf500b612.png)
-![Screenshot_2019-04-14-12-49-26-665_com jsdaniell contactlist contact_list](https://user-images.githubusercontent.com/44711197/56095794-b974a900-5eb6-11e9-894d-4d099f5d9140.png)
-![Screenshot_2019-04-14-12-49-42-183_com jsdaniell contactlist contact_list](https://user-images.githubusercontent.com/44711197/56095795-b974a900-5eb6-11e9-9fc5-2c71456cfd2e.png)
+<img src="https://user-images.githubusercontent.com/44711197/56095792-b8dc1280-5eb6-11e9-9239-d368516a8d4b.png" alt="screenshot_one" width="200"/>
+
+<img src="https://user-images.githubusercontent.com/44711197/56095793-b974a900-5eb6-11e9-89ca-8ddaf500b612.png" alt="screenshot_two" width="200"/>
+
+<img src="https://user-images.githubusercontent.com/44711197/56095794-b974a900-5eb6-11e9-894d-4d099f5d9140.png" alt="screenshot_three" width="200"/>
+
+<img src="https://user-images.githubusercontent.com/44711197/56095795-b974a900-5eb6-11e9-9fc5-2c71456cfd2e.png" alt="screenshot_four" width="200"/>
+
+
 
