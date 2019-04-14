@@ -14,13 +14,16 @@ This project is a starting point for a Flutter application.
 
 ## Some pictures of the app
 
-<img src="https://user-images.githubusercontent.com/44711197/56095792-b8dc1280-5eb6-11e9-9239-d368516a8d4b.png" alt="screenshot_one" width="200"/>
+<div>
 
-<img src="https://user-images.githubusercontent.com/44711197/56095793-b974a900-5eb6-11e9-89ca-8ddaf500b612.png" alt="screenshot_two" width="200"/>
+<img style="float: right;" src="https://user-images.githubusercontent.com/44711197/56095792-b8dc1280-5eb6-11e9-9239-d368516a8d4b.png" alt="screenshot_one" width="218"/>
 
-<img src="https://user-images.githubusercontent.com/44711197/56095794-b974a900-5eb6-11e9-894d-4d099f5d9140.png" alt="screenshot_three" width="200"/>
+<img style="float: right;" src="https://user-images.githubusercontent.com/44711197/56095793-b974a900-5eb6-11e9-89ca-8ddaf500b612.png" alt="screenshot_two" width="218"/>
 
-<img src="https://user-images.githubusercontent.com/44711197/56095795-b974a900-5eb6-11e9-9fc5-2c71456cfd2e.png" alt="screenshot_four" width="200"/>
+<img style="float: right;" src="https://user-images.githubusercontent.com/44711197/56095794-b974a900-5eb6-11e9-894d-4d099f5d9140.png" alt="screenshot_three" width="218"/>
 
+<img style="float: right;" src="https://user-images.githubusercontent.com/44711197/56095795-b974a900-5eb6-11e9-9fc5-2c71456cfd2e.png" alt="screenshot_four" width="218"/>
+
+</div>
 
 
